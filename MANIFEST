@@ -4,7 +4,7 @@ MANIFEST
 README
 examples/explain_dslip.pl
 lib/Data/CPAN/DSLIP/Explain.pm
-t/00-load.t
+t/kwalitee.t
 t/pod-coverage.t
 t/pod.t
 t/Data-CPAN-DSLIP-Explain.t

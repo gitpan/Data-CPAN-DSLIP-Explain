@@ -1,5 +1,10 @@
 Revision history for Data-CPAN-DSLIP-Explain
 
+0.02	Wed Feb 6 2008
+	-fixed improper distro. Had some garbage in MANIFEST
+		if you managed to install this package you
+		are fine with 0.01
+
 0.01    Date/time
         First version, released on an unsuspecting world.
 
