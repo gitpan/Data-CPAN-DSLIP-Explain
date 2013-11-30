@@ -12,9 +12,15 @@ my $builder = Module::Build->new(
     },
     requires => {
         Carp => 0,
+        'perl' => '5.006',
     },
+    configure_requires => { 'Module::Build' => 0 },
     add_to_cleanup      => [ 'Data-CPAN-DSLIP-Explain-*' ],
     create_makefile_pl => 'traditional',
 );
+
+if ( $ENV{RELEASE_TESTING} ) {
+    system('pod2text lib/Data/CPAN/DSLIP/Explain.pm > README');
+}
 
 $builder->create_build_script();

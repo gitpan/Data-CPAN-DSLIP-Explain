@@ -1,21 +1,25 @@
 ---
-name: Data-CPAN-DSLIP-Explain
-version: 0.03
+abstract: "\"decrypts\" CPAN module DSLIP code"
 author:
   - 'Zoffix Znet <zoffix@cpan.org>'
-abstract: '"decrypts" CPAN module DSLIP code'
-license: perl
-resources:
-  license: http://dev.perl.org/licenses/
-requires:
-  Carp: 0
 build_requires:
   Test::More: 0
+configure_requires:
+  Module::Build: 0
+dynamic_config: 1
+generated_by: 'Module::Build version 0.4007, CPAN::Meta::Converter version 2.132830'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Data-CPAN-DSLIP-Explain
 provides:
   Data::CPAN::DSLIP::Explain:
     file: lib/Data/CPAN/DSLIP/Explain.pm
-    version: 0.03
-generated_by: Module::Build version 0.2808
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.2.html
-  version: 1.2
+    version: 0.04
+requires:
+  Carp: 0
+  perl: 5.006
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.04

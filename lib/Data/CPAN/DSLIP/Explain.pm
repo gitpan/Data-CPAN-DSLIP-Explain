@@ -3,7 +3,7 @@ package Data::CPAN::DSLIP::Explain;
 use warnings;
 use strict;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 use Carp;
 
@@ -30,7 +30,7 @@ sub dslip {
 sub _convert_dslip {
     my $self = shift;
     my @dslips = @_;
-    
+
     my $explanation_of = $self->_get_dslip_explanations;
     my @result;
     foreach my $dslip ( @dslips ) {
@@ -42,7 +42,7 @@ sub _convert_dslip {
 
         push @result, \%codes;
     }
-    
+
     return \@result;
 }
 
@@ -74,7 +74,7 @@ sub _get_dslip_explanations {
             u       => 'Usenet newsgroup comp.lang.perl.modules',
             n       => 'None known, try comp.lang.perl.modules',
         },
-        
+
         L => {
             info    => 'Language Used',
             p       => 'Perl-only, no compiler needed, '
@@ -85,7 +85,7 @@ sub _get_dslip_explanations {
             '+'     => 'C++ and perl, a C++ compiler will be needed',
             o       => 'perl and another language other than C or C++',
         },
-        
+
         I => {
             info    => 'Interface Style',
             f       => 'plain Functions, no references used',
@@ -95,13 +95,13 @@ sub _get_dslip_explanations {
             o       => 'Object oriented using blessed references '
                         . 'and/or inheritance',
         },
-         
+
         P => {
             info    => 'Public License',
             p       => 'Standard-Perl: user may choose between GPL '
                             . 'and Artistic',
             g       => 'GPL: GNU General Public License',
-            l       => 'LGPL: "GNU Lesser General Public License"' 
+            l       => 'LGPL: "GNU Lesser General Public License"'
                         . '(previously known as "GNU Library '
                         . 'General Public License")',
             b       => 'BSD: The BSD License',
@@ -124,22 +124,22 @@ Data::CPAN::DSLIP::Explain - "decrypts" CPAN module DSLIP code
 
     use strict;
     use warnings;
-    
+
     use Data::CPAN::DSLIP::Explain;
 
     my $dslip = 'Sdcfp';
-    
+
     my $obj = Data::CPAN::DSLIP::Explain->new;
-    
+
     my $meaning = $obj->dslip( $dslip );
-    
+
     print "\nDSLIP code `$dslip` means:\n",
             join "\n\t",
                 map {
                     $obj->explain_dslip_letter( $_ )
                     . "\n\t\t$meaning->{$_}"
                 } qw(D S L I P);
-    
+
     print "\n\n----\n";
 
 =head1 DESCRIPTION
@@ -172,7 +172,7 @@ Takes no arguments.
     };
 
 Takes one or more arguments which should be DSLIP codes. In scalar context
-returns the meaning of the first DSLIP in a form of a hashref. In 
+returns the meaning of the first DSLIP in a form of a hashref. In
 list context returns a list of explanations for one or several DSLIP
 code passed as arguments. The meaning is a hashref with keys being
 each of the letters of DSLIP:
